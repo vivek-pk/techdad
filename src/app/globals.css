@@ -1,26 +1,226 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+/* Monochrome theme variables */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground: #111111;
+  --muted: #737373; /* gray-500 */
+  --border: #e5e5e5; /* gray-200 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #e5e5e5;
+    --muted: #a3a3a3; /* gray-400 */
+    --border: #262626; /* gray-800 */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+/* Common layout helpers */
+.container {
+  width: 100%;
+  max-width: 72rem; /* ~1152px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: color-mix(in oklab, currentColor 40%, transparent);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* Typography: keep monochrome and readable */
+.prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--foreground);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--muted);
+  --tw-prose-bullets: var(--muted);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--border);
+  --tw-prose-captions: var(--muted);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+}
+
+/* Prism.js grayscale theme (minimal) */
+/* Keep highlighting subtle and monochrome */
+pre[class*='language-'] {
+  background: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  text-shadow: none;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--muted);
+}
+
+.token.punctuation {
+  color: color-mix(in oklab, var(--foreground) 70%, var(--background));
+}
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: color-mix(in oklab, var(--foreground) 85%, var(--background));
+}
+.token.boolean,
+.token.number {
+  color: color-mix(in oklab, var(--foreground) 80%, var(--background));
+}
+/* Minimal markdown article styling */
+.markdown {
+  line-height: 1.85;
+  font-size: clamp(1rem, 0.2vw + 1rem, 1.125rem);
+}
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.markdown h1 {
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.25rem);
+  margin-bottom: 0.5rem;
+}
+.markdown h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.markdown h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.markdown p {
+  margin: 1rem 0;
+  color: color-mix(in oklab, var(--foreground) 85%, var(--background));
+}
+.markdown a {
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 3px;
+}
+.markdown a:hover {
+  text-decoration-color: currentColor;
+}
+.markdown ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.markdown li {
+  margin: 0.35rem 0;
+}
+.markdown pre {
+  padding: 0.75rem 1rem;
+  overflow: auto;
+  margin: 1.25rem 0;
+}
+.markdown code {
+  font-family: var(--font-geist-mono);
+  font-size: 0.95em;
+}
+.markdown :not(pre) > code {
+  background: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.3rem;
+}
+.markdown blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 0.9rem;
+  color: var(--muted);
+  background: color-mix(in oklab, var(--foreground) 3%, var(--background));
+  margin: 1.25rem 0;
+}
+.markdown hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+.markdown img,
+.markdown video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--foreground) 3%, var(--background));
+  margin: 1.25rem 0;
+}
+.markdown figure {
+  margin: 1.25rem 0;
+}
+.markdown figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: color-mix(in oklab, var(--foreground) 75%, var(--background));
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: color-mix(in oklab, var(--foreground) 70%, var(--background));
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: color-mix(in oklab, var(--foreground) 85%, var(--background));
+  font-weight: 500;
+}
+.token.function {
+  color: var(--foreground);
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: color-mix(in oklab, var(--foreground) 90%, var(--background));
 }
