@@ -67,7 +67,7 @@ export function FadeInUpLi({
 }) {
   return (
     <motion.li
-      initial={false}
+  initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
       variants={fadeIn}
