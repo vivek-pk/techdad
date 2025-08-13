@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import Image from 'next/image';
 import { getPostBySlug, getAllPostsMeta } from '@/lib/md';
 import { notFound } from 'next/navigation';
@@ -33,7 +34,17 @@ export default async function PostPage({
 
   return (
     <main className="container py-10 sm:py-16">
-      <FadeInDiv className="max-w-2xl mx-auto">
+      <FadeInDiv className="max-w-3xl mx-auto">
+        <div className="mb-4">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1 text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+            aria-label="Back to home"
+          >
+            <span aria-hidden>←</span>
+            <span>Back</span>
+          </Link>
+        </div>
         {post.thumbnail && (
           <figure className="mb-6 sm:mb-8">
             <Image
