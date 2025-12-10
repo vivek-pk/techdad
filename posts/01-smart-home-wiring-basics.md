@@ -2,13 +2,13 @@
 slug:  wiring-manifesto
 title: "Building a Smart Home in India: The Wiring Manifesto"
 excerpt: "I am building a home from scratch in Kerala. Before a single smart bulb is bought, we need to talk about the most boring (but critical) part: The Wiring. Here is why I am running neutral wires to every switchboard."
-coverImage: "/images/blog/wiring-phase-intro.jpg"
+coverImage: "/bricks.jpeg"
 date: "2025-12-10"
 author:
   name: "TechDad"
 ogImage:
-  url: "/images/blog/wiring-phase-intro.jpg"
-thumbnail: /window.svg
+  url: "/bricks.jpeg"
+thumbnail: /bricks.jpeg
 ---
 
 I am currently standing in the middle of a construction site that will soon be my home. There are no painted walls, no furniture, and definitely no Wi-Fi yet. Just bricks, cement, and a lot of dust.
@@ -36,7 +36,7 @@ Smart modules (the relays that go behind switches) are getting smaller, but they
 
 If you try to stuff a smart relay + wires + connectors into a standard box, it becomes a fire hazard or simply won't fit.
 
-**The Fix:** I am using **50mm+ deep modular boxes** (or wooden boxes where applicable). That extra inch of depth is the difference between a clean install and a headache.
+**The Fix:** I am using **50mm+ deep modular boxes** . That extra inch of depth is the difference between a clean install and a headache.
 
 ## 3. Conduits are Cheap, Rework is Expensive
 
