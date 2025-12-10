@@ -21,13 +21,21 @@ If you are planning a new home build in India, here is the "Smart Home Wiring Ma
 
 In traditional Indian electrical wiring, electricians often loop the **Phase (Live)** wire to the switch and send it to the light, but the **Neutral** wire goes directly to the light fixture from the ceiling.
 
-This creates a problem: **Smart Switches need power.**
+This creates two major problems for a smart home.
 
-A smart switch (like a Sonoff, Shelly, or Tuya device) is basically a tiny computer. It needs to stay "on" to listen for your voice commands or app signals, even when the light is turned off. To stay on, it needs a complete circuit: **Phase + Neutral.**
+### Reason A: Constant Power
+A smart switch (like a Sonoff, Shelly, or Tuya device) is basically a tiny computer. It needs to stay "on" to listen for your voice commands or app signals, even when the light is turned off. To stay on reliability, it needs a complete circuit: **Phase + Neutral.**
+
+### Reason B: The Zigbee "Mesh" Advantage
+This is the secret weapon. I plan to use Zigbee sensors (motion, door/window) because they are fast and low-power.
+
+* **Without Neutral:** Zigbee switches are just "End Devices." They talk to the hub but don't help anyone else.
+* **With Neutral:** Zigbee switches act as **"Routers" (Repeaters).**
+
+By running a neutral wire, every light switch in my house becomes a signal booster. This creates a strong "Mesh Network," ensuring that a door sensor in the furthest bedroom still has a rock-solid connection because the hallway switch is repeating its signal back to the hub.
 
 **My Instruction to the Electrician:**
-> "Please pull a Neutral wire to every single switchboard, even if we aren't putting a socket there."
-
+> "Please pull a Neutral wire to every single switchboard. We need 24/7 power at the switch level for network repeaters."
 
 
 ## 2. The "Deep Box" Strategy
