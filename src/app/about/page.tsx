@@ -16,7 +16,7 @@ export default function AboutPage() {
             About
           </h1>
           <p className="text-zinc-600 dark:text-zinc-400">
-            TechDad – writing about smart homes, home labs, and DIY automation.
+            TechDad – About smart homes, home labs, and DIY automation.
           </p>
         </FadeInUpDiv>
       </div>

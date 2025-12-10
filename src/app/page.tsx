@@ -14,7 +14,7 @@ export default async function Home() {
             TechDad
           </h1>
           <p className="text-sm text-zinc-500 mt-2">
-            Writing about smart homes, home labs, and DIY automation.
+            About smart homes, home labs, and DIY automation.
           </p>
         </section>
 
