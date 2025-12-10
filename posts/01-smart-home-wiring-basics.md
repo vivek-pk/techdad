@@ -35,7 +35,7 @@ This is the secret weapon. I plan to use Zigbee sensors (motion, door/window) be
 By running a neutral wire, every light switch in my house becomes a signal booster. This creates a strong "Mesh Network," ensuring that a door sensor in the furthest bedroom still has a rock-solid connection because the hallway switch is repeating its signal back to the hub.
 
 **My Instruction to the Electrician:**
-> "Please pull a Neutral wire to every single switchboard. We need 24/7 power at the switch level for network repeaters."
+> "Please pull a Neutral wire to every single switchboard, even if we aren't putting a socket there."
 
 
 ## 2. The "Deep Box" Strategy
