@@ -1,60 +1,40 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import { getAllPostsMeta } from '@/lib/md';
 import { FadeInUpLi } from '@/components/anim';
+import { PostCard } from '@/components/post-card';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default async function Home() {
   const posts = getAllPostsMeta();
+
   return (
     <main className="container py-10 sm:py-16">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Hero */}
-        <section className="mb-10 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+        <section className="mb-12 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
             TechDad
           </h1>
-          <p className="text-sm text-zinc-500 mt-2">
-            About smart homes, home labs, and DIY automation.
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl">
+            Writing about smart homes, home labs, and DIY automation.
           </p>
         </section>
 
-        <ul className="space-y-6">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Latest Posts</h2>
+          <Link href="/categories" className="text-sm font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 flex items-center gap-1">
+            View all <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((p, i) => (
             <FadeInUpLi
               key={p.slug}
               delayMs={i * 50}
-              className="border-b border-[color:var(--border)] pb-6"
+              className="h-full"
             >
-              <Link href={`/posts/${p.slug}`} className="group block">
-                <div className="flex gap-4">
-                  <div className="shrink-0">
-                    {p.thumbnail ? (
-                      <Image
-                        src={p.thumbnail}
-                        alt=""
-                        width={160}
-                        height={90}
-                        className="h-20 w-[160px] object-cover rounded bg-[color:var(--muted)] border border-[color:var(--border)]"
-                      />
-                    ) : (
-                      <div className="h-20 w-[160px] rounded bg-[color:var(--muted)] border border-[color:var(--border)]" />
-                    )}
-                  </div>
-                  <div className="min-w-0">
-                    <h2 className="font-medium text-xl group-hover:underline decoration-zinc-400 truncate">
-                      {p.title}
-                    </h2>
-                    <p className="text-xs text-zinc-500 mt-1">
-                      {new Date(p.date).toLocaleDateString()}
-                    </p>
-                    {p.excerpt && (
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-2">
-                        {p.excerpt}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </Link>
+              <PostCard post={p} />
             </FadeInUpLi>
           ))}
         </ul>

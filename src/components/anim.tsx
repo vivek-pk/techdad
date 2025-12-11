@@ -4,12 +4,12 @@ import { motion, Variants } from 'motion/react';
 
 const fadeIn: Variants = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.16, ease: 'easeOut' } },
+  show: { opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } },
 };
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 3 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.16, ease: 'easeOut' } },
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.25, 0, 1] } },
 };
 
 export function FadeInDiv({
@@ -23,10 +23,10 @@ export function FadeInDiv({
 }) {
   return (
     <motion.div
-      initial={false}
+      initial="hidden"
       animate="show"
       variants={fadeIn}
-      style={{ transitionDelay: `${delayMs}ms` }}
+      transition={{ delay: delayMs / 1000 }}
       className={className}
     >
       {children}
@@ -45,10 +45,10 @@ export function FadeInUpDiv({
 }) {
   return (
     <motion.div
-      initial={false}
+      initial="hidden"
       animate="show"
       variants={fadeInUp}
-      style={{ transitionDelay: `${delayMs}ms` }}
+      transition={{ delay: delayMs / 1000 }}
       className={className}
     >
       {children}
@@ -69,9 +69,9 @@ export function FadeInUpLi({
     <motion.li
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={fadeIn}
-      style={{ transitionDelay: `${delayMs}ms` }}
+      viewport={{ once: true, margin: "-50px" }}
+      variants={fadeInUp}
+      transition={{ delay: delayMs / 1000 }}
       className={className}
     >
       {children}
