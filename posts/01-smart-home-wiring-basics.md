@@ -10,6 +10,7 @@ ogImage:
   url: "/bricks.jpeg"
 thumbnail: /bricks.jpeg
 tags: ["Smart Home", "Wiring", "Zigbee"]
+popular: true
 ---
 
 I am currently standing in the middle of a construction site that will soon be my home. There are no painted walls, no furniture, and definitely no Wi-Fi yet. Just bricks, cement, and a lot of dust.

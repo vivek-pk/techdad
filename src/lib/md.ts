@@ -16,6 +16,7 @@ export type PostMeta = {
   thumbnail?: string;
   tags?: string[];
   readingTime: number;
+  popular?: boolean;
 };
 
 export type Post = PostMeta & {
@@ -39,12 +40,13 @@ function readAllMarkdown(): { meta: PostMeta; content: string }[] {
       const thumbnail =
         (data.thumbnail || data.image || '').toString() || undefined;
       const tags = data.tags ? (Array.isArray(data.tags) ? data.tags : [data.tags]) : [];
-      
+      const popular = data.popular === true;
+
       // Calculate reading time: ~200 words per minute
       const words = content.trim().split(/\s+/).length;
       const readingTime = Math.ceil(words / 200);
 
-      return { meta: { slug, title, date, excerpt, thumbnail, tags, readingTime }, content };
+      return { meta: { slug, title, date, excerpt, thumbnail, tags, readingTime, popular }, content };
     });
 
   // Sort newest first, then deduplicate by slug keeping the first (newest) entry

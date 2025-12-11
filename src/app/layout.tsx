@@ -62,6 +62,7 @@ export default function RootLayout({
               </Link>
               <div className="flex items-center gap-6">
                 <Link href="/" className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Home</Link>
+                <Link href="/posts" className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Blog</Link>
                 <Link href="/about" className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">About</Link>
                 <Link href="/categories" className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Categories</Link>
                 <ThemeToggle />
