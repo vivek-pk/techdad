@@ -37,6 +37,11 @@ export const metadata: Metadata = {
     description: 'Writing about smart homes, home labs, and DIY automation',
     creator: '@techdad',
   },
+  alternates: {
+    types: {
+      'application/rss+xml': '/rss.xml',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -83,6 +88,14 @@ export default function RootLayout({
                   className="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
                 >
                   GitHub
+                </a>
+                <a
+                  href="/rss.xml"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
+                >
+                  RSS
                 </a>
               </div>
             </div>
