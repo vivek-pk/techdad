@@ -28,8 +28,8 @@ export default async function PostsPage() {
                         </h1>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {posts.map((p, i) => (
-                                <FadeInUpLi key={p.slug} delayMs={i * 50} className="h-full">
-                                    <PostCard post={p} />
+                                <FadeInUpLi key={p.slug} delayMs={i * 50} className="h-full" priority={i < 3}>
+                                    <PostCard post={p} priority={i < 3} />
                                 </FadeInUpLi>
                             ))}
                         </ul>

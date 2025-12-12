@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { PostMeta } from '@/lib/md';
 import { Clock, Calendar } from 'lucide-react';
 
-export function PostCard({ post }: { post: PostMeta }) {
+export function PostCard({ post, priority = false }: { post: PostMeta; priority?: boolean }) {
     return (
         <Link href={`/posts/${post.slug}`} className="group block h-full">
             <div className="flex flex-col h-full overflow-hidden rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 transition-all hover:border-zinc-300 hover:shadow-md dark:hover:border-zinc-700">
@@ -13,6 +13,8 @@ export function PostCard({ post }: { post: PostMeta }) {
                             src={post.thumbnail}
                             alt={post.title}
                             fill
+                            priority={priority}
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                     ) : (

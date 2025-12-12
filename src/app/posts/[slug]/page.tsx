@@ -43,7 +43,7 @@ export default async function PostPage({
 
   return (
     <main className="container py-10 sm:py-16">
-      <FadeInDiv className="max-w-3xl mx-auto">
+      <FadeInDiv className="max-w-3xl mx-auto" priority>
         <div className="mb-8">
           <Link
             href="/"
@@ -100,6 +100,7 @@ export default async function PostPage({
                 alt={`${post.title} thumbnail`}
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, 768px"
                 className="object-cover"
               />
             </div>

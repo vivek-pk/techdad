@@ -33,8 +33,9 @@ export default async function Home() {
               key={p.slug}
               delayMs={i * 50}
               className="h-full"
+              priority={i < 3}
             >
-              <PostCard post={p} />
+              <PostCard post={p} priority={i < 3} />
             </FadeInUpLi>
           ))}
         </ul>

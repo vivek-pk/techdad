@@ -45,8 +45,8 @@ export default async function CategoryPage({
 
                 <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {posts.map((p, i) => (
-                        <FadeInUpLi key={p.slug} delayMs={i * 50} className="h-full">
-                            <PostCard post={p} />
+                        <FadeInUpLi key={p.slug} delayMs={i * 50} className="h-full" priority={i < 3}>
+                            <PostCard post={p} priority={i < 3} />
                         </FadeInUpLi>
                     ))}
                 </ul>

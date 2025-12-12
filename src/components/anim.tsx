@@ -16,14 +16,16 @@ export function FadeInDiv({
   children,
   className,
   delayMs = 0,
+  priority = false,
 }: {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
+  priority?: boolean;
 }) {
   return (
     <motion.div
-      initial="hidden"
+      initial={priority ? "show" : "hidden"}
       animate="show"
       variants={fadeIn}
       transition={{ delay: delayMs / 1000 }}
@@ -60,14 +62,16 @@ export function FadeInUpLi({
   children,
   className,
   delayMs = 0,
+  priority = false,
 }: {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
+  priority?: boolean;
 }) {
   return (
     <motion.li
-      initial="hidden"
+      initial={priority ? "show" : "hidden"}
       whileInView="show"
       viewport={{ once: true, margin: "-50px" }}
       variants={fadeInUp}
