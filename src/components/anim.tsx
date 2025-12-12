@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { motion, Variants } from 'motion/react';
+import { m, Variants } from 'motion/react';
 
 const fadeIn: Variants = {
   hidden: { opacity: 0 },
@@ -24,7 +24,7 @@ export function FadeInDiv({
   priority?: boolean;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={priority ? "show" : "hidden"}
       animate="show"
       variants={fadeIn}
@@ -32,7 +32,7 @@ export function FadeInDiv({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -46,7 +46,7 @@ export function FadeInUpDiv({
   delayMs?: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       animate="show"
       variants={fadeInUp}
@@ -54,7 +54,7 @@ export function FadeInUpDiv({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -70,7 +70,7 @@ export function FadeInUpLi({
   priority?: boolean;
 }) {
   return (
-    <motion.li
+    <m.li
       initial={priority ? "show" : "hidden"}
       whileInView="show"
       viewport={{ once: true, margin: "-50px" }}
@@ -79,6 +79,6 @@ export function FadeInUpLi({
       className={className}
     >
       {children}
-    </motion.li>
+    </m.li>
   );
 }

@@ -5,7 +5,7 @@ import { getPostBySlug, getAllPostsMeta } from '@/lib/md';
 import { notFound } from 'next/navigation';
 import { FadeInDiv } from '@/components/anim';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
-import Comments from '@/components/comments';
+import LazyComments from '@/components/lazy-comments';
 
 export async function generateStaticParams() {
   return getAllPostsMeta().map((p) => ({ slug: p.slug }));
@@ -117,7 +117,7 @@ export default async function PostPage({
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
-        <Comments />
+        <LazyComments />
       </FadeInDiv>
     </main>
   );
